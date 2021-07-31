@@ -1,0 +1,167 @@
+{
+	"info": {
+		"_postman_id": "d0550ec2-08d7-43df-9f44-9f4f577987e1",
+		"name": "Backend DAM",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET todos los devices",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/dispositivo",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"dispositivo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET un dispositivo",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/dispositivo/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"dispositivo",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET ultima medicion",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/medicion/last/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"medicion",
+						"last",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Nueva medicion",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 3,\n    \"valor\": \"18\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/medicion/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"medicion",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET todas las entradas log riego",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/riego/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"riego",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET última entrada log riego",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/riego/last/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"riego",
+						"last",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Nueva entrada log riego",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 1,\n    \"apertura\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/riego",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"riego"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
