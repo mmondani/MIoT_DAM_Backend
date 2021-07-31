@@ -1,29 +1,29 @@
 const express = require ("express");
 const router = express.Router();
 
-const MedicionMiddleware = require("./middleware")
-const MedicionController = require("./controller");
+const RiegoController = require("./controller");
+const RiegoMiddleware = require("./middleware");
 
 /**
- * Permite todas las mediciones de un dispositivo
+ * Obtiene todas las entradas del log de riego de una electroválvula
  *
  * Parámetros URL:
- *      id [number]: ID del dispositivo que se está consultando
+ *      id [number]: ID de la electroválvula que se está consultando
  * 
  * Body: -
  * 
  * Respuesta existosa:
  *      Código: 200
- *      Body: array con todas las mediciones
+ *      Body: array con todas las entradas del log de riego
  * 
  *      Ejemplo:
  *      [
- *           {
- *               medicionId: 1,
- *               fecha: "2020-11-26 21:19:41",
- *               valor: "60",
- *               dispositivoId: 1
- *           }
+ *          {
+ *              logRiegoId: 1,
+ *              apertura: "2020-11-26 21:19:41",
+ *              fecha: "60",
+ *              electrovalvulaId: 1
+ *          }
  *      ]
  * 
  * Respuesta fallida:
@@ -37,29 +37,29 @@ const MedicionController = require("./controller");
  *      }
  */
  router.get("/:id", [
-    MedicionController.getMedicionesDispositivoId
+    RiegoController.getLogRiegoElectrovalvula
 ]);
 
 
 /**
- * Permite obtener la última medicion de un dispositivo
+ * Permite obtener la última entrada del log de riego de una electrovávula
  *
  * Parámetros URL:
- *      id [number]: ID del dispositivo que se está consultando
+ *      id [number]: ID de la electroválvula que se está consultando
  * 
  * Body: -
  * 
  * Respuesta existosa:
  *      Código: 200
- *      Body: última medición del dispositivo con ID id
+ *      Body: última entrada del log
  * 
  *      Ejemplo:
- *           {
- *               medicionId: 1,
- *               fecha: "2020-11-26 21:19:41",
- *               valor: "60",
- *               dispositivoId: 1
- *           }
+ *          {
+ *              logRiegoId: 1,
+ *              apertura: "2020-11-26 21:19:41",
+ *              fecha: "60",
+ *              electrovalvulaId: 1
+ *          }
  * 
  * Respuesta fallida:
  *      Código: 400
@@ -72,25 +72,24 @@ const MedicionController = require("./controller");
  *      }
  */
  router.get("/last/:id", [
-    MedicionController.getUltimaMedicionDispositivoId
+    RiegoController.getUltimoLogRiegoElectrovalvula
 ]);
 
 
-
 /**
- * Permite agregar una medición para el disposito ID
+ * Permite agregar una nueva entrada al log de riego para la electrovávula ID
  *
  * Parámetros URL: -
  * 
  * Body: 
  *      Campos obligatorios
- *          id [number]: ID del dispositivo
- *          valor [string]: valor de la medición
+ *          id [number]: ID de la electrovávula
+ *          apertura [number]: indica si es una apertura (1) o un cierre (0)
  * 
  *      Ejemplo:
  *      {
  *          "id": 1,
- *          "valor": "50"
+ *          "apertura": 1
  *      }
  * 
  * Respuesta existosa:
@@ -102,17 +101,15 @@ const MedicionController = require("./controller");
  *      Body: objeto indicando el/los error/es. 
  *            Posibles errores:
  *              - Falta el campo id
- *              - Falta el campo valor
+ *              - Falta el campo apertura
  * 
  *      {
  *          "errores": ["No se encuentra el id"]
  *      }
  */
  router.post("/", [
-    MedicionMiddleware.hasNewMedicionValidFields,
-    MedicionController.newMedicion
+    RiegoMiddleware.hasNewRiegoValidFields,
+    RiegoController.newRiego
 ]);
-
-
 
 module.exports = router;

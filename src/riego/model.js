@@ -1,20 +1,20 @@
 const db = require("../mysql-connector");
 
 /*
-* Devuelve todas las mediciones del dispositivo ID.
-* @returns retorna una Promise que se resuelve en un un array de objetos con la siguiente estructura:
+* Devuelve todo el log de riego correspondiente a la vávula ID
+* @returns retorna una Promise que se resuelve en un array de objetos con la siguiente estructura:
 *      {
-*          medicionId: 1,
-*          fecha: "2020-11-26 21:19:41",
-*          valor: "60",
-*          dispositivoId: 1
+*          logRiegoId: 1,
+*          apertura: "2020-11-26 21:19:41",
+*          fecha: "60",
+*          electrovalvulaId: 1
 *      }
 */
-exports.getMedicionesDispositivoId = (id) => {
+exports.getLogRiego = (idValvula) => {
     return new Promise((resolve, reject) => {
         db.query(
-            "SELECT * from Mediciones WHERE dispositivoId=?",
-            [id],
+            "SELECT * from Log_Riegos WHERE electrovalvulaId=?",
+            [idValvula],
             function (error, rows) {
                 if (error)
                     reject(error);
@@ -30,22 +30,21 @@ exports.getMedicionesDispositivoId = (id) => {
 }
 
 
-
 /*
-* Devuelve la última medición del dispositivo ID.
+* Devuelve la entrada más reciente del log de riego a la vávula ID
 * @returns retorna una Promise que se resuelve en un objeto con la siguiente estructura:
 *      {
-*          medicionId: 1,
-*          fecha: "2020-11-26 21:19:41",
-*          valor: "60",
-*          dispositivoId: 1
+*          logRiegoId: 1,
+*          apertura: "2020-11-26 21:19:41",
+*          fecha: "60",
+*          electrovalvulaId: 1
 *      }
 */
-exports.getUltimaMedicionDispositivoId = (id) => {
+exports.getUltimoLogRiego = (idValvula) => {
     return new Promise((resolve, reject) => {
         db.query(
-            "SELECT * from Mediciones WHERE dispositivoId=? ORDER BY fecha DESC LIMIT 1",
-            [id],
+            "SELECT * from Log_Riegos WHERE electrovalvulaId=? ORDER BY fecha DESC LIMIT 1",
+            [idValvula],
             function (error, rows) {
                 if (error)
                     reject(error);
@@ -61,26 +60,25 @@ exports.getUltimaMedicionDispositivoId = (id) => {
 }
 
 
-
 /*
-* Agrega una nueva medición en la tabla Mediciones
- * @param {object} data objeto que contiene el id del dispositivo a modificar y el nuevo valor. Por ejemplo:
+* Agrega una nueva entrada en el log de riego para la electroválvula ID
+ * @param {object} data objeto que contiene el id de la electrovávula a modificar y el si es una apertura o no. Por ejemplo:
  * 
  *      {
  *          "id": 1,
- *          "valor": "50"
+ *          "apertura": 1
  *      }
 * @returns retorna una Promise 
 */
-exports.newMedicion = (data) => {
+exports.newRiego = (data) => {
     return new Promise((resolve, reject) => {
         db.query(
-            "INSERT INTO Mediciones (fecha, valor, dispositivoId) VALUES (?, ?, ?)",
+            "INSERT INTO Log_Riegos (apertura, fecha, electrovalvulaId) VALUES (?, ?, ?)",
             [
+                data.apertura,
                 new Date().toISOString().
                     replace(/T/, ' ').       // replace T with a space
                     replace(/\..+/, ''),     // delete the dot and everything after,
-                data.valor,
                 data.id
             ],
             function (error, rows) {

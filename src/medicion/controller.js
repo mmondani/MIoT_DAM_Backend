@@ -37,7 +37,7 @@ const MedicionModel = require("./model");
 
 
 /**
- * Agrega una nueva medición correspondiente al dispositivo con el ID indicado en la URL
+ * Agrega una nueva medición correspondiente al dispositivo ID
  * Si la operación es exitosa, retorna un código 200.
  * Si la operación falla, retorna un código 400.
  * @param {*} req objeto del request realizado

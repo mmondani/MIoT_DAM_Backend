@@ -1,9 +1,9 @@
 /**
- * Comprueba que el request para agregar una nueva medición de un dispositivo tenga en su body un objeto de la forma:
+ * Comprueba que el request para agregar una nueva entrada al log de riego de una electroválvula tenga en su body un objeto de la forma:
  * 
  *      {
  *          "id": 1
- *          "valor": "50"
+ *          "apertura": 1
  *      }
  * 
  * 
@@ -12,15 +12,15 @@
  * @param {*} next llama a la siguiente función en el array de callbacks asociado al endpoint
  * @returns 
  */
- exports.hasNewMedicionValidFields = (req, res, next) => {
+ exports.hasNewRiegoValidFields = (req, res, next) => {
     let errors = [];
 
     if (!req.body.id)
         errors.push("Falta el campo id");
 
-    if (!req.body.valor)
-        errors.push("Falta el campo valor");
-
+    if (req.body.apertura == undefined)
+        errors.push("Falta el campo apertura");
+        
 
     if (errors.length > 0)
         return res.status(400).send({errores: errors});
