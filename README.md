@@ -71,16 +71,16 @@ Una descripción de los endpoints disponibles puede verse a continuación:
     ```json
     [
         {
-            dispositivoId: 1,
-            nombre: "Dispositivo 1",
-            ubicacion: "Patio",
-            electrovalvulaId: 1
+            "dispositivoId": 1,
+            "nombre": "Dispositivo 1",
+            "ubicacion": "Patio",
+            "electrovalvulaId": 1
         },
         {
-            dispositivoId: 2,
-            nombre: "Dispositivo 2",
-            ubicacion: "Frente",
-            electrovalvulaId: 2
+            "dispositivoId": 2,
+            "nombre": "Dispositivo 2",
+            "ubicacion": "Frente",
+            "electrovalvulaId": 2
         }
     ]
     ```
@@ -113,10 +113,10 @@ Una descripción de los endpoints disponibles puede verse a continuación:
     *Ejemplo*
     ```json
     {
-        dispositivoId: 1,
-        nombre: "Dispositivo 1",
-        ubicacion: "Patio",
-        electrovalvulaId: 1
+        "dispositivoId": 1,
+        "nombre": "Dispositivo 1",
+        "ubicacion": "Patio",
+        "electrovalvulaId": 1
     }
     ```
  
@@ -158,16 +158,16 @@ Una descripción de los endpoints disponibles puede verse a continuación:
     ```json
     [
         {
-            medicionId: 1,
-            fecha: "2020-11-26 21:19:41",
-            valor: "60",
-            dispositivoId: 1
+            "medicionId": 1,
+            "fecha": "2020-11-26 21:19:41",
+            "valor": "60",
+            "dispositivoId": 1
         },
         {
-            medicionId: 2,
-            fecha: "2020-11-26 21:20:41",
-            valor: "35",
-            dispositivoId: 2
+            "medicionId": 2,
+            "fecha": "2020-11-26 21:20:41",
+            "valor": "35",
+            "dispositivoId": 2
         }
     ]
     ```
@@ -208,10 +208,10 @@ Una descripción de los endpoints disponibles puede verse a continuación:
     *Ejemplo*
     ```json
     {
-        dispositivoId: 1,
-        nombre: "Dispositivo 1",
-        ubicacion: "Patio",
-        electrovalvulaId: 1
+        "dispositivoId": 1,
+        "nombre": "Dispositivo 1",
+        "ubicacion": "Patio",
+        "electrovalvulaId": 1
     }
     ```
  
@@ -301,16 +301,16 @@ Una descripción de los endpoints disponibles puede verse a continuación:
     ```json
     [
         {
-            logRiegoId: 1,
-            apertura: "2020-11-26 21:19:41",
-            fecha: "60",
-            electrovalvulaId: 1
+            "logRiegoId": 1,
+            "apertura": "2020-11-26 21:19:41",
+            "fecha": "60",
+            "electrovalvulaId": 1
         },
         {
-            logRiegoId: 2,
-            apertura: "2020-11-26 21:20:41",
-            fecha: "35",
-            electrovalvulaId: 1
+            "logRiegoId": 2,
+            "apertura": "2020-11-26 21:20:41",
+            "fecha": "35",
+            "electrovalvulaId": 1
         }
     ]
     ```
@@ -351,10 +351,10 @@ Una descripción de los endpoints disponibles puede verse a continuación:
     *Ejemplo*
     ```json
     {
-        logRiegoId: 1,
-        apertura: "2020-11-26 21:19:41",
-        fecha: "60",
-        electrovalvulaId: 1
+        "logRiegoId": 1,
+        "apertura": "2020-11-26 21:19:41",
+        "fecha": "60",
+        "electrovalvulaId": 1
     }
     ```
  
