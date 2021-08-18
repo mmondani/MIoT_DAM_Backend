@@ -45,6 +45,26 @@
 			"response": []
 		},
 		{
+			"name": "GET Todas las mediciones",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/medicion/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"medicion",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "GET ultima medicion",
 			"request": {
 				"method": "GET",
